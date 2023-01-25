@@ -109,9 +109,20 @@ ORDER BY passenger_count;
 For the passengers picked up in the Astoria Zone which was the drop off zone that had the largest tip?
 We want the name of the zone, not the id.
 
-Note: it's not a typo, it's `tip` , not `trip`
+```sql
+SELECT
+green_taxi_trips.tip_amount,
+green_taxi_trips.pu_location_id as pu_id,
+green_taxi_trips.do_location_id as du_id,
+zones.zone as pickup_zone,
+zones2.zone as dropoff_zone
+FROM green_taxi_trips
+INNER JOIN zones
+ON green_taxi_trips.pu_location_id = zones.location_id
+INNER JOIN zones as zones2
+ON green_taxi_trips.do_location_id = zones2.location_id
+WHERE zones.zone = 'Astoria'
+ORDER BY tip_amount DESC;
+```
 
-- Central Park
-- Jamaica
-- South Ozone Park
-- Long Island City/Queens Plaza
+-- 88 tip from Astorie to Long Island City /  Queens Plaza
