@@ -56,6 +56,7 @@ python ingest_data_zones.py \
   --url=${URL}
 ```
 
+Afterwards the column names were updated to lowercase and _ with the pgadmin tool.
 
 ## Question 3. Count records 
 
