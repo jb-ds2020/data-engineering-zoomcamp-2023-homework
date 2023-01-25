@@ -1,2 +1,3 @@
 # data-engineering-zoomcamp-2023-homework
-homework
+
+Homework and solutions are provided here.
