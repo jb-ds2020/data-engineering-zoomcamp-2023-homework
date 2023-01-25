@@ -21,24 +21,46 @@ Solution: 3 packages
 
 # Prepare Postgres
 
-Run Postgres and load data as shown in the videos
+Run Postgres and load data as shown in the videos. 
 
-```wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz```
+Using the combined docker image and build by using the included docker-compose.yaml file and then use:
 
-You will also need the dataset with zones:
+```docker-compose up```
 
-```wget https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv```
+Insert the green taxi data by:
+```
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz"
 
-Download this data and put it into Postgres (with jupyter notebooks or with a pipeline)
+python ingest_data_green.py \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=ny_taxi \
+  --table_name=zones \
+  --url=${URL}
+```
+
+Insert the zones by using:
+
+```
+URL="https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv"
+
+python ingest_data_zones.py \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=ny_taxi \
+  --table_name=zones \
+  --url=${URL}
+```
 
 
 ## Question 3. Count records 
 
 How many taxi trips were totally made on January 15?
 
-Tip: started and finished on 2019-01-15. 
-
-Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in the format timestamp (date and hour+min+sec) and not in date.
 
 - 20689
 - 20530
