@@ -76,19 +76,32 @@ AND lpep_dropoff_datetime < '2019-01-16 00:00:00';
 Which was the day with the largest trip distance
 Use the pick up time for your calculations.
 
-- 2019-01-18
-- 2019-01-28
-- 2019-01-15
-- 2019-01-10
+```sql
+SELECT
+lpep_pickup_datetime,
+trip_distance
+FROM green_taxi_trips
+ORDER  BY trip_distance DESC
+LIMIT 10;
+```
+
+-- 2019-01-15 with a distance of 117.99
 
 ## Question 5. The number of passengers
 
 In 2019-01-01 how many trips had 2 and 3 passengers?
- 
-- 2: 1282 ; 3: 266
-- 2: 1532 ; 3: 126
-- 2: 1282 ; 3: 254
-- 2: 1282 ; 3: 274
+
+```sql
+SELECT
+passenger_count,
+COUNT(*)
+FROM green_taxi_trips
+WHERE CAST(lpep_pickup_datetime AS DATE) = '2019-01-01'
+GROUP BY passenger_count
+ORDER BY passenger_count;
+```
+
+-- 2: 1282 ; 3: 254
 
 
 ## Question 6. Largest tip
