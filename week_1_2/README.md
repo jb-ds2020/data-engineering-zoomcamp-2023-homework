@@ -1,43 +1,27 @@
 # 1_terraform_gcp
 # 2_docker_sql
 
-## Week 1 Homework
-
-In this homework we'll prepare the environment 
-and practice with Docker and SQL
-
-
 ## Question 1. Knowing docker tags
-
-Run the command to get information on Docker 
-
-```docker --help```
-
-Now run the command to get help on the "docker build" command
 
 Which tag has the following text? - *Write the image ID to the file* 
 
-- `--imageid string`
-- `--iidfile string`
-- `--idimage string`
-- `--idfile string`
+
+```docker build --help```
+
+Solution: "--iidfile string"
 
 
 ## Question 2. Understanding docker first run 
 
 Run docker with the python:3.9 image in an interactive mode and the entrypoint of bash.
-Now check the python modules that are installed ( use pip list). 
-How many python packages/modules are installed?
 
-- 1
-- 6
-- 3
-- 7
+```docker run -it --entrypoint /bin/bash python:3.9```
+
+Solution: 3 packages
 
 # Prepare Postgres
 
 Run Postgres and load data as shown in the videos
-We'll use the green taxi trips from January 2019:
 
 ```wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz```
 
