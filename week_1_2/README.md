@@ -60,12 +60,16 @@ python ingest_data_zones.py \
 ## Question 3. Count records 
 
 How many taxi trips were totally made on January 15?
+```sql
+SELECT COUNT(*)
+FROM green_taxi_trips
+WHERE lpep_pickup_datetime >= '2019-01-15 00:00:00' 
+AND lpep_pickup_datetime < '2019-01-16 00:00:00'
+AND lpep_dropoff_datetime >= '2019-01-15 00:00:00'
+AND lpep_dropoff_datetime < '2019-01-16 00:00:00';
+```
 
-
-- 20689
-- 20530
-- 17630
-- 21090
+-- 20530 rides Sharing and finishing on the 15th of January 2019
 
 ## Question 4. Largest trip for each day
 
