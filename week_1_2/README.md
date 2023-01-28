@@ -8,7 +8,7 @@ After updating the main.tf and variable.tf files run:
 terraform apply
 ```
 
-They way to reach the goal of applying terraform
+They way to reach the goal of applying terraform on the google cloud environtment:
 
 - follow the videos for terraform:
 https://youtu.be/Hajwnmj0xfQ & https://youtu.be/dNkEgO-CExg
@@ -28,7 +28,7 @@ terraform apply
 terraform destroy
 ```
 
-After the `terraform apply` I copied the output to the homerwork form.
+After the `terraform apply` I copied the output to the homework form.
 
 
 # 2_docker_sql
