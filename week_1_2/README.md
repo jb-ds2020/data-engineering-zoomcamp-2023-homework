@@ -1,4 +1,36 @@
 # 1_terraform_gcp
+
+## Question 1. Creating Resources
+
+After updating the main.tf and variable.tf files run:
+
+```
+terraform apply
+```
+
+They way to reach the goal of applying terraform
+
+- follow the videos for terraform:
+https://youtu.be/Hajwnmj0xfQ & https://youtu.be/dNkEgO-CExg
+
+- follow the video for gcp setup and terraform:
+https://youtu.be/ae-CV2KfoN0
+
+After finishing the whole setup on the virtual machine and cloning the course repo I used the following command line commands to reach the goal:
+
+```
+terraform init
+
+terraform plan 
+
+terraform apply
+
+terraform destroy
+```
+
+After the `terraform apply` I copied the output to the homerwork form.
+
+
 # 2_docker_sql
 
 ## Question 1. Knowing docker tags
