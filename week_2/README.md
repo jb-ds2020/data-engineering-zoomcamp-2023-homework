@@ -44,6 +44,14 @@ After setting up the python file for web to gcs and gcs to bigquery, the deploym
 
 `prefect deployment build flows/02_gcp/ETL_web_gcs_bq_homework.py:etl_parent_flow -n "Parametrized ETL Homework"`
 
+set the parameter to: `"year":2019, "months":[2,3], "color":"yello"``
+
+and finally apply the deployment:
+
+`prefect deployment apply etl_parent_flow-deployment.yaml``
+
+use the prefect gui to shedule a rum for Friday 16:26 European Time with cron string `26 15 * * 5`
+
 ## Question 4. Github Storage Block
 
 Using the `web_to_gcs` script from the videos as a guide, you want to store your flow code in a GitHub repository for collaboration with your team. Prefect can look in the GitHub repo to find your flow code and read it. Create a GitHub storage block from the UI or in Python code and use that in your Deployment instead of storing your flow code locally or baking your flow code into a Docker image. 
