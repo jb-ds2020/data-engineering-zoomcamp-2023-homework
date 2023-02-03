@@ -40,6 +40,9 @@ Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and
 
 - 14,851,920
 
+After setting up the python file for web to gcs and gcs to bigquery, the deployment was done with:
+
+`prefect deployment build flows/02_gcp/ETL_web_gcs_bq_homework.py:etl_parent_flow -n "Parametrized ETL Homework"`
 
 ## Question 4. Github Storage Block
 
