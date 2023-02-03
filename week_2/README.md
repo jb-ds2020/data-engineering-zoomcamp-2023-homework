@@ -10,9 +10,6 @@ Using the `etl_web_to_gcs.py` flow that loads taxi data into GCS as a guide, cre
 How many rows does that dataset have?
 
 * 447,770
-* 766,792
-* 299,234
-* 822,132
 
 
 ## Question 2. Scheduling with Cron
@@ -22,9 +19,9 @@ Cron is a common scheduling specification for workflows.
 Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first of every month at 5am UTC. What’s the cron schedule for that?
 
 - `0 5 1 * *`
-- `0 0 5 1 *`
-- `5 * 1 0 *`
-- `* * 5 1 0`
+ 1. minutes
+ 2. hours in UTC
+ 3. day of the month
 
 
 ## Question 3. Loading data to BigQuery 
