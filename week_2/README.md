@@ -48,9 +48,11 @@ set the parameter to: `"year":2019, "months":[2,3], "color":"yello"``
 
 and finally apply the deployment:
 
-`prefect deployment apply etl_parent_flow-deployment.yaml``
+`prefect deployment apply etl_parent_flow-deployment.yaml`
 
 use the prefect gui to shedule a rum for Friday 16:26 European Time with cron string `26 15 * * 5`
+
+And finally activate the default work queue with `prefect agent start --work-queue "default"`
 
 ## Question 4. Github Storage Block
 
