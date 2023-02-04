@@ -90,9 +90,6 @@ Alternatively, you can grab the webhook URL from your own Slack workspace and Sl
 
 How many rows were processed by the script?
 
-- `125,268`
-- `377,922`
-- `728,390`
 - `514,392`
 
 
