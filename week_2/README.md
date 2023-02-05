@@ -30,6 +30,10 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
 
 `prefect deployment build flows/02_gcp/etl_web_to_gcs_homework.py:etl_web_to_gcs -n "Parametrized ETL Homework cronjob"  --cron "0 5 1 * *"` 
 
+and finally apply the deployment:
+
+`prefect deployment apply etl_web_to_gcs-deployment.yaml`
+
 ## Question 3. Loading data to BigQuery 
 
 Using `etl_gcs_to_bq.py` as a starting point, modify the script for extracting data from GCS and loading it into BigQuery. This new script should not fill or remove rows with missing values. (The script is really just doing the E and L parts of ETL).
