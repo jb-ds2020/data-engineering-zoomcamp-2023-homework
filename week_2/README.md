@@ -34,6 +34,8 @@ and finally apply the deployment:
 
 `prefect deployment apply etl_web_to_gcs-deployment.yaml`
 
+And finally activate the default work queue with `prefect agent start --work-queue "default"`
+
 ## Question 3. Loading data to BigQuery 
 
 Using `etl_gcs_to_bq.py` as a starting point, modify the script for extracting data from GCS and loading it into BigQuery. This new script should not fill or remove rows with missing values. (The script is really just doing the E and L parts of ETL).
@@ -54,7 +56,7 @@ After setting up the python file for web to gcs and gcs to bigquery, the deploym
 
 `prefect deployment build flows/02_gcp/ETL_web_gcs_bq_homework.py:etl_parent_flow -n "Parametrized ETL Homework"`
 
-set the parameter to: `"year":2019, "months":[2,3], "color":"yello"``
+set the parameter to: `"year":2019, "months":[2,3], "color":"yello"` in the .yaml file
 
 and finally apply the deployment:
 
@@ -97,6 +99,12 @@ if __name__ == "__main__":
     deployment.apply()
 ```
 
+with the following command this deployment is set:
+
+`python flows/03_deployments/git_deploy.py`
+
+`prefect deployment run etl-parent-flow/github-deployment  -p "months=[11]" -p "year=2020" -p "color=green"
+
 ## Question 5. Email or Slack notifications
 
 Q5. It’s often helpful to be notified when something with your dataflow doesn’t work as planned. Choose one of the options below for creating email or slack notifications.
@@ -109,18 +117,39 @@ Set up an Automation that will send yourself an email when a flow run completes.
 
 Alternatively, use a Prefect Cloud Automation or a self-hosted Orion server Notification to get notifications in a Slack workspace via an incoming webhook. 
 
-Join my temporary Slack workspace with [this link](https://join.slack.com/t/temp-notify/shared_invite/zt-1odklt4wh-hH~b89HN8MjMrPGEaOlxIw). 400 people can use this link and it expires in 90 days. 
-
-In the Prefect Cloud UI create an [Automation](https://docs.prefect.io/ui/automations) or in the Prefect Orion UI create a [Notification](https://docs.prefect.io/ui/notifications/) to send a Slack message when a flow run enters a Completed state. Here is the Webhook URL to use: https://hooks.slack.com/services/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
-
-Test the functionality.
-
-Alternatively, you can grab the webhook URL from your own Slack workspace and Slack App that you create. 
-
-
 How many rows were processed by the script?
 
 - `514,392`
+
+First it was necessary to connect to prefect cloud with an API key.
+
+After setting up the notification, I set up all the block from the local orion server to the prefect cloud to have all the credentials available there.
+
+I created a python file for the cloud deployment:
+```python
+from prefect.deployments import Deployment
+from ETL_web_gcs_bq_homework import etl_parent_flow
+
+from prefect_github.repository import GitHubRepository
+
+storage = GitHubRepository.load("github-prefect-code")
+
+deployment = Deployment.build_from_flow(
+    flow=etl_parent_flow,
+    name="github-deployment",
+    storage=storage,
+    entrypoint="flows/02_gcp/ETL_web_gcs_bq_homework.py:etl_parent_flow",
+)
+
+if __name__ == "__main__":
+    deployment.apply()
+
+```
+Setup the deployment:
+`python flows/03_deployments/git_deploy_prefect_cloud.py`
+
+Run the deployment:
+`prefect deployment run etl-parent-flow/github-deployment  -p "months=[4]" -p "year=2019" -p "color=green"
 
 ## Question 6. Secrets
 
@@ -143,17 +172,9 @@ def add_secret_block():
 if __name__ == "__main__":
     add_secret_block()
 ```
+
+`python flows/03_deployments/Secret.py`
+
+Afterwards I could check the blocks under the Prefect cloud UI
+
 Link: https://discourse.prefect.io/t/how-to-securely-store-secrets-in-prefect-2-0/1209
-
-
-## Submitting the solutions
-
-* Form for submitting: https://forms.gle/PY8mBEGXJ1RvmTM97
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
-
-Deadline: 6 February (Monday), 22:00 CET
-
-
-## Solution
-
-We will publish the solution here
