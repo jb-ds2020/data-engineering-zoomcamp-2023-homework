@@ -97,10 +97,24 @@ How many rows were processed by the script?
 
 Prefect Secret blocks provide secure, encrypted storage in the database and obfuscation in the UI. Create a secret block in the UI that stores a fake 10-digit password to connect to a third-party service. Once you’ve created your block in the UI, how many characters are shown as asterisks (*) on the next page of the UI?
 
-- 5
-- 6
 - 8
-- 10
+
+Uses the code in a script to add the secrets block since it was not available in my UI:
+
+```python
+from prefect import flow
+from prefect.blocks.system import Secret
+
+
+@flow
+def add_secret_block():
+    Secret(value="passwordexample").save(name="jonassecret")
+
+
+if __name__ == "__main__":
+    add_secret_block()
+```
+Link: https://discourse.prefect.io/t/how-to-securely-store-secrets-in-prefect-2-0/1209
 
 
 ## Submitting the solutions
