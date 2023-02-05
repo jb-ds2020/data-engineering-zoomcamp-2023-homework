@@ -13,6 +13,9 @@ How many rows does that dataset have?
 
 * 447,770
 
+After preparing the code I used the following command:
+`python flows/02_gcp/etl_web_to_gcs_homework.py`
+
 
 ## Question 2. Scheduling with Cron
 
@@ -25,6 +28,7 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
  2. hours in UTC
  3. day of the month
 
+`prefect deployment build flows/02_gcp/etl_web_to_gcs_homework.py:etl_parent_flow -n "Parametrized ETL Homework cronjob"  --cron "0 5 1 * *"` 
 
 ## Question 3. Loading data to BigQuery 
 
