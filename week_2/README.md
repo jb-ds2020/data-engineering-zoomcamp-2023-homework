@@ -103,7 +103,7 @@ with the following command this deployment is set:
 
 `python flows/03_deployments/git_deploy.py`
 
-`prefect deployment run etl-parent-flow/github-deployment  -p "months=[11]" -p "year=2020" -p "color=green"
+`prefect deployment run etl-parent-flow/github-deployment  -p "months=[11]" -p "year=2020" -p "color=green"`
 
 ## Question 5. Email or Slack notifications
 
@@ -149,7 +149,7 @@ Setup the deployment:
 `python flows/03_deployments/git_deploy_prefect_cloud.py`
 
 Run the deployment:
-`prefect deployment run etl-parent-flow/github-deployment  -p "months=[4]" -p "year=2019" -p "color=green"
+`prefect deployment run etl-parent-flow/github-deployment  -p "months=[4]" -p "year=2019" -p "color=green"`
 
 ## Question 6. Secrets
 
