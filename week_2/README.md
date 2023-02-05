@@ -66,6 +66,26 @@ How many rows were processed by the script?
 
 - 88,605
 
+Following code was used to deploy the code with a github repo:
+
+```python
+from prefect.deployments import Deployment
+from ETL_web_gcs_bq_homework import etl_parent_flow
+
+from prefect.filesystems import GitHub
+
+storage = GitHub.load("github-prefect-code")
+
+deployment = Deployment.build_from_flow(
+    flow=etl_parent_flow,
+    name="github-deployment",
+    storage=storage,
+    entrypoint="flows/02_gcp/ETL_web_gcs_bq_homework.py:etl_parent_flow",
+)
+
+if __name__ == "__main__":
+    deployment.apply()
+```
 
 ## Question 5. Email or Slack notifications
 
@@ -91,27 +111,6 @@ Alternatively, you can grab the webhook URL from your own Slack workspace and Sl
 How many rows were processed by the script?
 
 - `514,392`
-
-Following code was used to deploy the code with a github repo:
-
-```python
-from prefect.deployments import Deployment
-from ETL_web_gcs_bq_homework import etl_parent_flow
-
-from prefect.filesystems import GitHub
-
-storage = GitHub.load("github-prefect-code")
-
-deployment = Deployment.build_from_flow(
-    flow=etl_parent_flow,
-    name="github-deployment",
-    storage=storage,
-    entrypoint="flows/02_gcp/ETL_web_gcs_bq_homework.py:etl_parent_flow",
-)
-
-if __name__ == "__main__":
-    deployment.apply()
-```
 
 ## Question 6. Secrets
 
