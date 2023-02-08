@@ -62,10 +62,16 @@ FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata_non_partitioned`
 
 ## Question 3:
 How many records have both a blank (null) PUlocationID and DOlocationID in the entire dataset?
+Answer:
 - 717,748
-- 1,215,687
-- 5
-- 20,332
+
+```sql
+-- Question 3
+SELECT COUNT(*)
+FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata_non_partitioned`
+WHERE PUlocationID IS NULL AND DOlocationID IS NULL;
+-- 717748
+```
 
 ## Question 4:
 What is the best strategy to optimize the table if query always filter by pickup_datetime and order by affiliated_base_number?
