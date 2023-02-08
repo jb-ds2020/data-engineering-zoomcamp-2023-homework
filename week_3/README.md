@@ -6,7 +6,17 @@ Stop with loading the files into a bucket. </br></br>
 
 <b>SETUP:</b></br>
 Create an external table using the fhv 2019 data. </br>
+
+Rpository to be found here: https://github.com/jb-ds2020/dezoomcamp-week_3/tree/main/week_3_data_warehouse
+
+Solution:
+I created a .py file which loads the data into gcs using prefect
+
+`python week_3_data_warehouse/ETL_web_gcs_fhv_taxi.py`
+
 Create a table in BQ using the fhv 2019 data (do not partition or cluster this table). </br>
+Solution:
+
 Data can be found here: https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv </p>
 
 ## Question 1:
