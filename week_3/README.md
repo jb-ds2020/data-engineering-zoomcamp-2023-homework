@@ -17,6 +17,16 @@ I created a .py file which loads the data into gcs using prefect
 Create a table in BQ using the fhv 2019 data (do not partition or cluster this table). </br>
 Solution:
 
+```sql
+-- Creating external table referring to gcs path
+CREATE OR REPLACE EXTERNAL TABLE `ringed-enigma-376110.dezoomcamp.fhv_tripdata`
+OPTIONS (
+  format = 'CSV',
+  uris = ['gs://dezoomcamptaxibucket/data/fhv/fhv_tripdata_2019-*.csv.gz']
+);
+
+```
+
 Data can be found here: https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv </p>
 
 ## Question 1:
