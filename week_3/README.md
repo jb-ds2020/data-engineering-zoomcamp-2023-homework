@@ -44,11 +44,21 @@ SELECT COUNT(*) FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata`;
 Write a query to count the distinct number of affiliated_base_number for the entire dataset on both the tables.</br> 
 What is the estimated amount of data that will be read when this query is executed on the External Table and the Table?
 
-- 25.2 MB for the External Table and 100.87MB for the BQ Table
-- 225.82 MB for the External Table and 47.60MB for the BQ Table
-- 0 MB for the External Table and 0MB for the BQ Table
+Answer:
 - 0 MB for the External Table and 317.94MB for the BQ Table 
 
+```sql
+-- Question 2
+-- external table
+SELECT COUNT(DISTINCT(Affiliated_base_number))
+FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata`
+-- result 0MB
+
+-- bq table
+SELECT COUNT(DISTINCT(Affiliated_base_number))
+FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata_non_partitioned`
+-- result 317.94MB
+```
 
 ## Question 3:
 How many records have both a blank (null) PUlocationID and DOlocationID in the entire dataset?
