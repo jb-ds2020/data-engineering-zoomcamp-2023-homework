@@ -31,10 +31,14 @@ Data can be found here: https://github.com/DataTalksClub/nyc-tlc-data/releases/t
 
 ## Question 1:
 What is the count for fhv vehicle records for year 2019?
-- 65,623,481
+Answer:
 - 43,244,696
-- 22,978,333
-- 13,942,414
+
+```sql
+SELECT COUNT(*) FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata`;
+```
+
+43244696
 
 ## Question 2:
 Write a query to count the distinct number of affiliated_base_number for the entire dataset on both the tables.</br> 
