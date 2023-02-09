@@ -138,6 +138,24 @@ Answer: For small datasets (<1gb) clustering has no performance increase and for
 ## (Not required) Question 8:
 A better format to store these files may be parquet. Create a data pipeline to download the gzip files and convert them into parquet. Upload the files to your GCP Bucket and create an External and BQ Table. 
 
+SETUP:
+Create an external table using the fhv 2019 data.
+
+Rpository to be found here: https://github.com/jb-ds2020/dezoomcamp-week_3/tree/main/week_3_data_warehouse
+
+Solution: I created a .py file which loads the data into gcs using prefect and before converting it to parquet. I used pyarrow to allow the correct format of all columns.
+
+`python week_3_data_warehouse/ETL_web_gcs_fhv_taxi_parquet.py`
+
+```sql
+-- Creating external table referring to gcs path
+CREATE OR REPLACE EXTERNAL TABLE `ringed-enigma-376110.dezoomcamp.fhv_tripdata_parquet`
+OPTIONS (
+  format = 'CSV',
+  uris = ['gs://dezoomcamptaxibucket/data/fhv/fhv_tripdata_2019-*.parquet']
+);
+
+```
 
 Note: Column types for all files used in an External Table must have the same datatype. While an External Table may be created and shown in the side panel in Big Query, this will need to be validated by running a count query on the External Table to check if any errors occur. 
  
