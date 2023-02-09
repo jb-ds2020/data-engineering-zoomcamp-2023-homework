@@ -151,10 +151,18 @@ Solution: I created a .py file which loads the data into gcs using prefect and b
 -- Creating external table referring to gcs path
 CREATE OR REPLACE EXTERNAL TABLE `ringed-enigma-376110.dezoomcamp.fhv_tripdata_parquet`
 OPTIONS (
-  format = 'CSV',
+  format = 'PARQUET',
   uris = ['gs://dezoomcamptaxibucket/data/fhv/fhv_tripdata_2019-*.parquet']
 );
+```
 
+Query to count rows:
+```sql
+-- query count on 
+SELECT COUNT(Affiliated_base_number)
+FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata_parquet`;
+
+-- result 40'767'583
 ```
 
 Note: Column types for all files used in an External Table must have the same datatype. While an External Table may be created and shown in the side panel in Big Query, this will need to be validated by running a count query on the External Table to check if any errors occur. 
