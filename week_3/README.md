@@ -129,8 +129,10 @@ Link: https://cloud.google.com/bigquery/docs/external-data-sources?hl=de#:~:text
 
 ## Question 7:
 It is best practice in Big Query to always cluster your data:
-- True
+
 - False
+
+Answer: For small datasets (<1gb) clustering has no performance increase and for streaming clustering can increase cost.
 
 
 ## (Not required) Question 8:
