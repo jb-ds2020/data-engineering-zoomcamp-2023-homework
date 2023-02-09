@@ -159,10 +159,10 @@ OPTIONS (
 Query to count rows:
 ```sql
 -- query count on 
-SELECT COUNT(Affiliated_base_number)
+SELECT COUNT(pickup_datetime)
 FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata_parquet`;
 
--- result 40'767'583
+-- result 43'244'696
 ```
 
 Note: Column types for all files used in an External Table must have the same datatype. While an External Table may be created and shown in the side panel in Big Query, this will need to be validated by running a count query on the External Table to check if any errors occur. 
