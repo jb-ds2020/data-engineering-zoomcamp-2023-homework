@@ -143,7 +143,7 @@ Create an external table using the fhv 2019 data.
 
 Rpository to be found here: https://github.com/jb-ds2020/dezoomcamp-week_3/tree/main/week_3_data_warehouse
 
-Solution: I created a .py file which loads the data into gcs using prefect and before converting it to parquet. I used pyarrow to allow the correct format of all columns.
+Solution: I created a .py file which loads the data into gcs using prefect and before converting it to parquet. I used a date parsing specifier to enable correct time format for pickup and dropoff time.
 
 `python week_3_data_warehouse/ETL_web_gcs_fhv_taxi_parquet.py`
 
