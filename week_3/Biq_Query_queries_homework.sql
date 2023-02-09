@@ -62,5 +62,5 @@ OPTIONS (
 );
 
 -- query count on 
-SELECT COUNT(Affiliated_base_number)
+SELECT COUNT(pickup_datetime)
 FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata_parquet`;
