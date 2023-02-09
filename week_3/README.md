@@ -118,10 +118,13 @@ WHERE DATE(pickup_datetime) BETWEEN '2019-03-01' AND '2019-03-31';
 ## Question 6: 
 Where is the data stored in the External Table you created?
 
-- Big Query
 - GCP Bucket
-- Container Registry
-- Big Table
+
+The data remains in the GCP Bucket. I searched for the docu:
+
+"External tables are similar to standard BigQuery tables, in that these tables store their metadata and schema in BigQuery storage. However, their data resides in an external source. External tables are contained inside a dataset, and you manage them in the same way that you manage a standard BigQuery table."
+
+Link: https://cloud.google.com/bigquery/docs/external-data-sources?hl=de#:~:text=External%20tables%20are%20similar%20to,manage%20a%20standard%20BigQuery%20table.
 
 
 ## Question 7:
