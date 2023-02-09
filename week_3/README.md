@@ -75,19 +75,45 @@ WHERE PUlocationID IS NULL AND DOlocationID IS NULL;
 
 ## Question 4:
 What is the best strategy to optimize the table if query always filter by pickup_datetime and order by affiliated_base_number?
-- Cluster on pickup_datetime Cluster on affiliated_base_number
+
+Filter by pickup_datetime = Partitioning is good, since we have 365 days for year 2019 which is a suitable size
+Order by or aggregate on affiliated_base number = Clustering is good for aggregations and for dimensions we dont know before (Affiliation codes)
+
 - Partition by pickup_datetime Cluster on affiliated_base_number
-- Partition by pickup_datetime Partition by affiliated_base_number
-- Partition by affiliated_base_number Cluster on pickup_datetime
+
+Solution
+```sql
+-- Creating a partition (pickup) and cluster (Affiliate_base_number) table
+CREATE OR REPLACE TABLE `ringed-enigma-376110.dezoomcamp.fhv_tripdata_partitioned_and_clustered`
+PARTITION BY DATE(pickup_datetime)
+CLUSTER BY Affiliated_base_number AS
+SELECT * FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata`;
+```
 
 ## Question 5:
 Implement the optimized solution you chose for question 4. Write a query to retrieve the distinct affiliated_base_number between pickup_datetime 2019/03/01 and 2019/03/31 (inclusive).</br> 
 Use the BQ table you created earlier in your from clause and note the estimated bytes. Now change the table in the from clause to the partitioned table you created for question 4 and note the estimated bytes processed. What are these values? Choose the answer which most closely matches.
-- 12.82 MB for non-partitioned table and 647.87 MB for the partitioned table
-- 647.87 MB for non-partitioned table and 23.06 MB for the partitioned table
-- 582.63 MB for non-partitioned table and 0 MB for the partitioned table
-- 646.25 MB for non-partitioned table and 646.25 MB for the partitioned table
 
+- 647.87 MB for non-partitioned table and 23.06 MB for the partitioned table
+
+Result: 725 distinct Affiliated_base_numbers
+
+Solution:
+```sql
+-- a with bq table
+SELECT COUNT(DISTINCT Affiliated_base_number) as number_of_distinct_affiliates
+FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata_non_partitioned`
+WHERE DATE(pickup_datetime) BETWEEN '2019-03-01' AND '2019-03-31';
+
+-- result 725
+
+-- with partitioned and clustered table
+SELECT COUNT(DISTINCT Affiliated_base_number) as number_of_distinct_affiliates
+FROM `ringed-enigma-376110.dezoomcamp.fhv_tripdata_partitioned_and_clustered`
+WHERE DATE(pickup_datetime) BETWEEN '2019-03-01' AND '2019-03-31';
+
+-- result 725
+```
 
 ## Question 6: 
 Where is the data stored in the External Table you created?
