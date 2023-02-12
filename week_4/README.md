@@ -1,11 +1,4 @@
 ## Week 4 Homework 
-[Form](https://forms.gle/B5CXshja3MRbscVG8) 
-
-We will use all the knowledge learned in this week. Please answer your questions via form above.  
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
-
-**Deadline** for the homework is 23rd Feb 2022 22:00 CET.
-
 
 In this homework, we'll use the models developed during the week 4 videos and enhance the already presented dbt project using the already loaded Taxi data for fhv vehicles for year 2019 in our DWH.
 
@@ -22,6 +15,16 @@ only if you want to.
 **What is the count of records in the model fact_trips after running all models with the test run variable disabled and filtering for 2019 and 2020 data only (pickup datetime)**  
 You'll need to have completed the "Build the first dbt models" video and have been able to run the models via the CLI. 
 You should find the views and models for querying in your DWH.
+
+Solution:
+I created a production deployment with --vars 'is_test_run: false' and started a run with the yellow and green model. Then run a query:
+
+```sql
+SELECT COUNT(*) as number_of_records
+FROM `ringed-enigma-376110.production.fact_trips`
+WHERE EXTRACT(YEAR FROM pickup_datetime) BETWEEN 2019 AND 2020
+```
+result: 61540555
 
 ### Question 2: 
 **What is the distribution between service type filtering by years 2019 and 2020 data as done in the videos**
