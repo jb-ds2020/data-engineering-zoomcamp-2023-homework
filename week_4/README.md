@@ -24,7 +24,7 @@ SELECT COUNT(*) as number_of_records
 FROM `ringed-enigma-376110.production.fact_trips`
 WHERE EXTRACT(YEAR FROM pickup_datetime) BETWEEN 2019 AND 2020
 ```
-result: 61540555
+result: 61'540'555
 
 ### Question 2: 
 **What is the distribution between service type filtering by years 2019 and 2020 data as done in the videos**
@@ -43,6 +43,15 @@ Create a staging model for the fhv data for 2019 and do not add a deduplication 
 Filter records with pickup time in year 2019.
 
 I used the data dictionary for fhv trip data from here: https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_fhv.pdf
+
+After creating the model i build the model with `dbt build --select stg_fhv_tripdata --vars 'is_test_run: false'`
+
+```sql
+SELECT COUNT(*) as record_count
+FROM `ringed-enigma-376110.dbt_jbechthold.stg_fhv_tripdata` 
+WHERE EXTRACT(YEAR FROM pickup_datetime) = 2019
+```
+result: 43'244'696
 
 ### Question 4: 
 **What is the count of records in the model fact_fhv_trips after running all dependencies with the test run variable disabled (:false)**  
