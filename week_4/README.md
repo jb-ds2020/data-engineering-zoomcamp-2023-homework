@@ -31,6 +31,8 @@ result: 61540555
 
 I used google data studio and set a time interval filter:
 
+![](Bildschirmfoto 2023-02-12 um 14.17.31.png)
+
 https://lookerstudio.google.com/reporting/8a13d6c2-fd0a-4ebe-94b2-d41da403dfc1
 
 
