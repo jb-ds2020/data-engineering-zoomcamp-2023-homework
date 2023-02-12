@@ -29,7 +29,10 @@ result: 61540555
 ### Question 2: 
 **What is the distribution between service type filtering by years 2019 and 2020 data as done in the videos**
 
-You will need to complete "Visualising the data" videos, either using data studio or metabase. 
+I used google data studio and set a time interval filter:
+
+https://lookerstudio.google.com/reporting/8a13d6c2-fd0a-4ebe-94b2-d41da403dfc1
+
 
 ### Question 3: 
 **What is the count of records in the model stg_fhv_tripdata after running all models with the test run variable disabled (:false)**  
