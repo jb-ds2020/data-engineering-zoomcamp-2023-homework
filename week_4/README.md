@@ -42,6 +42,8 @@ https://lookerstudio.google.com/reporting/8a13d6c2-fd0a-4ebe-94b2-d41da403dfc1
 Create a staging model for the fhv data for 2019 and do not add a deduplication step. Run it via the CLI without limits (is_test_run: false).
 Filter records with pickup time in year 2019.
 
+I used the data dictionary for fhv trip data from here: https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_fhv.pdf
+
 ### Question 4: 
 **What is the count of records in the model fact_fhv_trips after running all dependencies with the test run variable disabled (:false)**  
 
