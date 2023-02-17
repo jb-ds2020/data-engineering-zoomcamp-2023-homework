@@ -35,7 +35,7 @@ I used google data studio and set a time interval filter:
 
 ![](chart.png)
 
-https://lookerstudio.google.com/reporting/8a13d6c2-fd0a-4ebe-94b2-d41da403dfc1
+Link to dashboard: https://lookerstudio.google.com/reporting/8a13d6c2-fd0a-4ebe-94b2-d41da403dfc1
 
 
 ### Question 3: 
@@ -87,3 +87,7 @@ GROUP BY month
 ORDER BY month
 ```
 result: january (1) with 19'849'151 this is much more than all the other months together.
+
+![](chart2.png)
+
+Link to dashboard: https://lookerstudio.google.com/reporting/cf5a7d04-cba8-4a96-891e-08dcfa9f4815
