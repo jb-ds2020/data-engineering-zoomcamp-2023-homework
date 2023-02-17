@@ -72,3 +72,16 @@ result: 22'998'722
 ### Question 5: 
 **What is the month with the biggest amount of rides after building a tile for the fact_fhv_trips table**
 Create a dashboard with some tiles that you find interesting to explore the data. One tile should show the amount of trips per month, as done in the videos for fact_trips, based on the fact_fhv_trips table.
+
+Query for doing the analysis in BigQuery:
+
+```sql
+SELECT
+EXTRACT(MONTH FROM pickup_datetime) as month,
+COUNT(*) as record_count_month
+FROM `ringed-enigma-376110.dbt_jbechthold.fact_fhv_trips` 
+WHERE EXTRACT(YEAR FROM pickup_datetime) = 2019
+GROUP BY month
+ORDER BY month
+```
+result: january (1) with 19'849'151 this is much more than all the other months together.
