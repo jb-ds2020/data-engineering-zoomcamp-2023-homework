@@ -23,6 +23,8 @@ Download the HVFHV data for february 2021:
 wget https://nyc-tlc.s3.amazonaws.com/trip+data/fhvhv_tripdata_2021-02.csv
 ```
 
+This link does not work, but you can use the official site to download the parquet file under: `https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2021-02.parquet
+
 Read it with Spark using the same schema as we did 
 in the lessons. We will use this dataset for all
 the remaining questions.
