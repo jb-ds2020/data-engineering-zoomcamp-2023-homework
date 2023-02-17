@@ -11,6 +11,8 @@ If you don't have access to GCP, you can do this locally using the ingested data
 instead. If you have access to GCP, you don't need to do it for local Postgres -
 only if you want to.
 
+Usefull website for this data is: https://www.nyc.gov/site/tlc/about/industry-reports.page
+
 ### Question 1: 
 **What is the count of records in the model fact_trips after running all models with the test run variable disabled and filtering for 2019 and 2020 data only (pickup datetime)**  
 You'll need to have completed the "Build the first dbt models" video and have been able to run the models via the CLI. 
