@@ -4,7 +4,7 @@ In this homework we'll put what we learned about Spark in practice.
 
 For this homework we will be using the FHVHV 2021-06 data found here. [FHVHV Data](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/fhvhv/fhvhv_tripdata_2021-06.csv.gz )
 
-I used a notebook which is uploaded in this repository folder:  
+I used a notebook which is uploaded in this repository folder: https://github.com/jb-ds2020/data-engineering-zoomcamp-2023-homework/blob/main/week_5/2023_02_26_Pyspark_week5_homework.ipynb
 
 
 ### Question 1: 
