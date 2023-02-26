@@ -4,6 +4,8 @@ In this homework we'll put what we learned about Spark in practice.
 
 For this homework we will be using the FHVHV 2021-06 data found here. [FHVHV Data](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/fhvhv/fhvhv_tripdata_2021-06.csv.gz )
 
+I used a notebook which is uploaded in this repository folder:  
+
 
 ### Question 1: 
 
