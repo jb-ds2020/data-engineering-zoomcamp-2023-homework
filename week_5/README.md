@@ -16,9 +16,8 @@ For this homework we will be using the FHVHV 2021-06 data found here. [FHVHV Dat
 
 What's the output?
 - 3.3.2
-- 2.1.4
-- 1.2.3
-- 5.4
+result after using `spark.version` in the notebooks is '3.3.1'
+
 </br></br>
 
 
