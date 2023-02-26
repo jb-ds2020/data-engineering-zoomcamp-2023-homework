@@ -16,7 +16,7 @@ For this homework we will be using the FHVHV 2021-06 data found here. [FHVHV Dat
 
 What's the output?
 - 3.3.2
-result after using `spark.version` in the notebooks is '3.3.1'
+result: after using `spark.version` in the notebooks is '3.3.1'
 
 </br></br>
 
@@ -30,11 +30,9 @@ We will use this dataset for all the remaining questions.</br>
 Repartition it to 12 partitions and save it to parquet.</br>
 What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)? Select the answer which most closely matches.</br>
 
-
-- 2MB
 - 24MB
-- 100MB
-- 250MB
+result: 23 MB
+
 </br></br>
 
 
@@ -45,10 +43,8 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 How many taxi trips were there on June 15?</br></br>
 Consider only trips that started on June 15.</br>
 
-- 308,164
-- 12,856
 - 452,470
-- 50,982
+result: 452470
 </br></br>
 
 
@@ -60,10 +56,8 @@ Now calculate the duration for each trip.</br>
 How long was the longest trip in Hours?</br>
 
 - 66.87 Hours
-- 243.44 Hours
-- 7.68 Hours
-- 3.32 Hours
-</br></br>
+result: on 2021-06-25 13:55:41 with 66.88 hours
+
 
 ### Question 5: 
 
@@ -71,12 +65,8 @@ How long was the longest trip in Hours?</br>
 
  Spark’s User Interface which shows application's dashboard runs on which local port?</br>
 
-- 80
-- 443
 - 4040
-- 8080
-</br></br>
-
+result: localhost:4040
 
 ### Question 6: 
 
@@ -87,13 +77,8 @@ Load the zone lookup data into a temp view in Spark</br>
 
 Using the zone lookup data and the fhvhv June 2021 data, what is the name of the most frequent pickup location zone?</br>
 
-- East Chelsea
-- Astoria
-- Union Sq
 - Crown Heights North
-</br></br>
-
-
+result: Crown Heights North with 231'279 pickups
 
 
 ## Submitting the solutions
