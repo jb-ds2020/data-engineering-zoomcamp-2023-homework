@@ -18,8 +18,6 @@ What's the output?
 - 3.3.2
 result: after using `spark.version` in the notebooks is '3.3.1'
 
-</br></br>
-
 
 ### Question 2: 
 
@@ -33,8 +31,6 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 - 24MB
 result: 23 MB
 
-</br></br>
-
 
 ### Question 3: 
 
@@ -45,7 +41,6 @@ Consider only trips that started on June 15.</br>
 
 - 452,470
 result: 452470
-</br></br>
 
 
 ### Question 4: 
