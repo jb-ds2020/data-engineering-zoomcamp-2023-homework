@@ -16,6 +16,7 @@ For this homework we will be using the FHVHV 2021-06 data found here. [FHVHV Dat
 
 What's the output?
 - 3.3.2
+
 result: after using `spark.version` in the notebooks is '3.3.1'
 
 
@@ -29,6 +30,7 @@ Repartition it to 12 partitions and save it to parquet.</br>
 What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)? Select the answer which most closely matches.</br>
 
 - 24MB
+
 result: 23 MB
 
 
@@ -40,6 +42,7 @@ How many taxi trips were there on June 15?</br></br>
 Consider only trips that started on June 15.</br>
 
 - 452,470
+
 result: 452470
 
 
@@ -61,6 +64,7 @@ result: on 2021-06-25 13:55:41 with 66.88 hours
  Spark’s User Interface which shows application's dashboard runs on which local port?</br>
 
 - 4040
+
 result: localhost:4040
 
 ### Question 6: 
@@ -73,6 +77,7 @@ Load the zone lookup data into a temp view in Spark</br>
 Using the zone lookup data and the fhvhv June 2021 data, what is the name of the most frequent pickup location zone?</br>
 
 - Crown Heights North
+
 result: Crown Heights North with 231'279 pickups
 
 
