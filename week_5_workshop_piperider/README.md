@@ -57,6 +57,12 @@ You will need to run PipeRider and check the report
 
 result:
 
+Average: 2.97
+SD: 35.99
+Min: -23.88
+Max: 167.3k
+Sum: 182.7M
+
 ![](q3.png)
 
 ## Submitting the solutions
