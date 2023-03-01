@@ -21,7 +21,7 @@ result:
 1 - 24.3M -> 39.5%
 4 - 263.3k -> 0.4%
 
-[](q1.png)
+![](q1.png)
 
 ### Question 2:
 
@@ -36,6 +36,8 @@ Positives 61.4M
 Zeros 28.6k
 Negatives 160.9k
 
+![](q2.png)
+
 ### Question 3:
 
 What is the numeric statistics (average/standard deviation/min/max/sum) of trip distances filtering by years 2019 and 2020 data?
@@ -45,6 +47,8 @@ You will need to run PipeRider and check the report
 * 2.95/35.43/-23.88/167.3K/181.5M
 
 result:
+
+![](q3.png)
 
 ## Submitting the solutions
 
