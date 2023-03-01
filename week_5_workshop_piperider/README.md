@@ -14,8 +14,32 @@ I followed the instructions here to setup and test dbt Core locally and setup th
 
 https://docs.getdbt.com/docs/get-started/getting-started-dbt-core
 
-Afterwards I cloned the repo of week 4 and made some changes:
+Basicall it is similar as shon in the workshop video:
 
+1. install dbt bigquery: `pip install dbt-bigquery`
+2. install piperider for bigquery: `pip install 'piperider[bigquery]'`
+
+For the BigQuery connection a profiles.yml file muste be created in the `~/.dbt`folder with details to BiqQuery Database connection such as service account json file and the profile muste be named. In this case, I used `jonas_bq` as profile name. After this the BigQuery connection can be tested with `dbt debug`
+
+Is this workes fine, the BQ connection can be used.
+
+Afterwards I cloned the repo of week 4 and made some changes in this repo here: https://github.com/jb-ds2020/taxi_dbt_piperider
+
+In the dbt repo for piperide, the `dbt_project.yml` the profile name must be changed from `profile: 'default'` (cbt cloud default value from week for) to `profile: 'jonas_bq'`
+
+Finally I added a line to filter the `fact_trips.sql` model to anly user pickup dates from 2019 and 2020:
+
+`where EXTRACT(YEAR FROM trips_unioned.pickup_datetime) = 2019 OR EXTRACT(YEAR FROM trips_unioned.pickup_datetime) = 2020`
+
+Then the steps are the same as in the tutorial:
+
+1. switch to a new branch: `git switch -c taxipiperider`
+2. `dbt deps`
+3. `dbt build --var 'is_test_run: false'` to allow the full dataset to be processed (otherwise only 100 rows will be processed)
+4. `piperider init`
+5. `piperider run`
+
+and finally open the report under: `.piperider/outputs/latest/index.html`, which gives answers to the following questions by using the fact_trips table and clicking on the wanted column to show the data composition.
 
 ### Question 1:
 
