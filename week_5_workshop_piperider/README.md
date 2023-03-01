@@ -21,6 +21,8 @@ result:
 1 - 24.3M -> 39.5%
 4 - 263.3k -> 0.4%
 
+[](q1.png)
+
 ### Question 2:
 
 What is the composition if total amount (positive/zero/negative) filtering by years 2019 and 2020 data?
