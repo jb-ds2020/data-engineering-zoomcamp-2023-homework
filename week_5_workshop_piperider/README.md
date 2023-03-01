@@ -8,6 +8,15 @@ Yellow taxi data - Years 2019 and 2020
 Green taxi data - Years 2019 and 2020
 fhv data - Year 2019.
 
+## Preqeuqisites
+
+I followed the instructions here to setup and test dbt Core locally and setup the connection to GoogleBigQuery
+
+https://docs.getdbt.com/docs/get-started/getting-started-dbt-core
+
+Afterwards I cloned the repo of week 4 and made some changes:
+
+
 ### Question 1:
 
 What is the distribution between vendor id filtering by years 2019 and 2020 data?
